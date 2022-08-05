@@ -15,3 +15,7 @@ mybatis:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+file:
+  upload:
+    path: /home/keae/warehouse/springboot/file/

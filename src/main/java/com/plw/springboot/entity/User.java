@@ -3,19 +3,64 @@ package com.plw.springboot.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@TableName(value = "sys_user")
-public class User {
-    @TableId(type = IdType.AUTO)
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+/**
+ * <p>
+ * 系统用户
+ * </p>
+ *
+ * @author plw
+ * @since 2022-06-23
+ */
+@TableName("sys_user")
+public class User implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * Primary Key
+     */
+    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
+
+    /**
+     * 用户名
+     */
     private String username;
-    @JsonIgnore
+
+    /**
+     * 密码
+     */
     private String password;
+
+    /**
+     * 昵称
+     */
     private String nickname;
+
+    /**
+     * 邮箱
+     */
     private String email;
+
+    /**
+     * 电话
+     */
     private String phone;
+
+    /**
+     * 地址
+     */
     private String address;
+
+    /**
+     * 创建日期
+     */
+    private LocalDateTime createTime;
+
 
     public Integer getId() {
         return id;
@@ -71,5 +116,27 @@ public class User {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public LocalDateTime getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(LocalDateTime createTime) {
+        this.createTime = createTime;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username=" + username +
+                ", password=" + password +
+                ", nickname=" + nickname +
+                ", email=" + email +
+                ", phone=" + phone +
+                ", address=" + address +
+                ", createTime=" + createTime +
+                "}";
     }
 }
